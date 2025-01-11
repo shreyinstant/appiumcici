@@ -240,28 +240,28 @@ public class BaseTest {
 		  setStrings(utils.parseStringXML(stringsis));
 		  
 			DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-			desiredCapabilities.setCapability("platformName", platformName);
-			desiredCapabilities.setCapability("deviceName", deviceName);
-			desiredCapabilities.setCapability("udid", udid);
+			desiredCapabilities.setCapability("appium:platformName", platformName);
+			desiredCapabilities.setCapability("appium:deviceName", deviceName);
+			desiredCapabilities.setCapability("appium:udid", udid);
 			url = new URL(props.getProperty("appiumURL"));
 			
 			switch(platformName) {
 			case "Android":
-				desiredCapabilities.setCapability("automationName", props.getProperty("androidAutomationName"));	
-				desiredCapabilities.setCapability("appPackage", props.getProperty("androidAppPackage"));
-				desiredCapabilities.setCapability("appActivity", props.getProperty("androidAppActivity"));
+				desiredCapabilities.setCapability("appium:automationName", props.getProperty("androidAutomationName"));
+				desiredCapabilities.setCapability("appium:appPackage", props.getProperty("androidAppPackage"));
+				desiredCapabilities.setCapability("appium:appActivity", props.getProperty("androidAppActivity"));
 				if(emulator.equalsIgnoreCase("true")) {
-					desiredCapabilities.setCapability("avd", deviceName);
-					desiredCapabilities.setCapability("avdLaunchTimeout", 120000);
+					desiredCapabilities.setCapability("appium:avd", deviceName);
+					desiredCapabilities.setCapability("appium:avdLaunchTimeout", 120000);
 				}
-				desiredCapabilities.setCapability("systemPort", systemPort);
-				desiredCapabilities.setCapability("chromeDriverPort", chromeDriverPort);
+				desiredCapabilities.setCapability("appium:systemPort", systemPort);
+				desiredCapabilities.setCapability("appium:chromeDriverPort", chromeDriverPort);
 		//		String androidAppUrl = getClass().getResource(props.getProperty("androidAppLocation")).getFile();
 				String androidAppUrl = System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
 						+ File.separator + "resources" + File.separator + "app" + File.separator +
 						"Android.SauceLabs.Mobile.Sample.app.2.7.1.apk";
 				utils.log().info("appUrl is" + androidAppUrl);
-				desiredCapabilities.setCapability("app", androidAppUrl);
+				desiredCapabilities.setCapability("appium:app", androidAppUrl);
 
 				driver = new AndroidDriver(url, desiredCapabilities);
 				break;
