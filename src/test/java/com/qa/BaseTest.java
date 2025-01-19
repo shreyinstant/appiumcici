@@ -187,19 +187,19 @@ public class BaseTest {
 	}
 
 	// for Mac. Update the paths as per your Mac setup
-	public AppiumDriverLocalService getAppiumService() {
-		HashMap<String, String> environment = new HashMap<String, String>();
-		environment.put("PATH", "enter_your_path_here" + System.getenv("PATH"));
-		environment.put("ANDROID_HOME", "enter_your_android_home_path_here");
-		return AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
-				.usingDriverExecutable(new File("/usr/local/bin/node"))
-				.withAppiumJS(new File("/usr/local/lib/node_modules/appium/build/lib/main.js"))
-				.usingPort(4723)
-				.withArgument(GeneralServerFlag.SESSION_OVERRIDE)
-//				.withArgument(() -> "--allow-insecure","chromedriver_autodownload")
-				.withEnvironment(environment)
-				.withLogFile(new File("ServerLogs/server.log")));
-	}
+//	public AppiumDriverLocalService getAppiumService() {
+//		HashMap<String, String> environment = new HashMap<String, String>();
+//		environment.put("PATH", "enter_your_path_here" + System.getenv("PATH"));
+//		environment.put("ANDROID_HOME", "enter_your_android_home_path_here");
+//		return AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
+//				.usingDriverExecutable(new File("/usr/local/bin/node"))
+//				.withAppiumJS(new File("/usr/local/lib/node_modules/appium/build/lib/main.js"))
+//				.usingPort(4723)
+//				.withArgument(GeneralServerFlag.SESSION_OVERRIDE)
+////				.withArgument(() -> "--allow-insecure","chromedriver_autodownload")
+//				.withEnvironment(environment)
+//				.withLogFile(new File("ServerLogs/server.log")));
+//	}
 	
   @Parameters({"emulator", "platformName", "udid", "deviceName", "systemPort", 
 	  "chromeDriverPort", "wdaLocalPort", "webkitDebugProxyPort"})
